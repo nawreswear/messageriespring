@@ -1,5 +1,4 @@
 package com.messageriespring;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import org.springframework.context.annotation.Bean;
@@ -10,7 +9,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-
 import java.util.Arrays;
 
 @Configuration
@@ -21,7 +19,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/message/**","/messages/**","/api/**","/api/save/**","/savee/**","/savee","/all/**","/all").permitAll()
+                .antMatchers("/article/{articleId}/signalements/**","/message/**","/messages/**","/api/**","/api/save/**","/savee/**","/savee","/all/**","/all","/messages/{id}").permitAll()
                 .and()
                 .csrf().disable();
     }

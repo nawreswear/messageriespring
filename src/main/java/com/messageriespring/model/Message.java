@@ -1,23 +1,13 @@
 package com.messageriespring.model;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.Hibernate;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
 import javax.persistence.*;
 import java.util.*;
-
 @Getter
 @Setter
 @AllArgsConstructor
 @Entity
-@Table(name = "Message")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Message {
     @Id

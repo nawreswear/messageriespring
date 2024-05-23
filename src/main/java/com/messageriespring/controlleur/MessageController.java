@@ -1,14 +1,10 @@
 package com.messageriespring.controlleur;
-
-
 import com.messageriespring.exception.ResourceNotFoundException;
 import com.messageriespring.model.Message;
 import com.messageriespring.repository.MessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
-
 import javax.validation.Valid;
 import java.util.List;
 

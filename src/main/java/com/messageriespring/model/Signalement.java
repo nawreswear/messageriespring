@@ -1,13 +1,9 @@
 package com.messageriespring.model;
-
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.Hibernate;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
@@ -21,6 +17,10 @@ public class Signalement extends Message {
     @Getter
     private String type;
 
+    @JsonIgnoreProperties
+    @ManyToOne
+    @JoinColumn(name = "article_id", nullable = false)
+    private Article article;
     public Signalement() {
         super();
     }
@@ -30,5 +30,10 @@ public class Signalement extends Message {
     public Signalement(Long id, String message, Date date, User user, List<User> users) {
         super(id, message, date, user, users);
     }
+    public Signalement(Long id, String type) {
+        this.id = id;
+        this.type = type;
+    }
+
 
 }
